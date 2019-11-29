@@ -2,7 +2,7 @@
 
 using namespace std;
 
-extern fstream dbStream;
+extern fstream db_stream;
 void close() {
-    dbStream.close();
+    db_stream.close();
 }

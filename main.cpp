@@ -6,14 +6,14 @@
 using namespace std;
 
 int main() {
-    extern fstream dbStream;
+    extern fstream db_stream;
     open();
     map<string, string> m;
     m["key1"] = "val1";
     m["key2"] = "val2";
 
     for (auto const& item : m) {
-        dbStream << item.first << " " << item.second << "\n";
+        db_stream << item.first << " " << item.second << "\n";
     }
     close();
 }
