@@ -10,7 +10,7 @@ int main() {
     open();
     map<string, string> m;
     m["key1"] = "val1";
-    m["key2"] = "val2";
+    m["key3"] = "val3";
 
     for (auto const& item : m) {
         db_stream << item.first << " " << item.second << "\n";
