@@ -2,7 +2,7 @@
 SRCS = put.cpp get.cpp open.cpp close.cpp main.cpp
 TARG = main
 CC   = g++
-OPTS = -Wall -O
+OPTS = -std=c++11 -Wall -O
 LIBS = -lm
 
 OBJS = $(SRCS:.cpp=.o)
