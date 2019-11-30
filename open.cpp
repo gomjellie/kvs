@@ -6,6 +6,7 @@ using namespace std;
 
 fstream db_stream;
 map<string, string> kvs;
+
 int open() {
     db_stream.open("my.db", ios::in | ios::out);
     while (!db_stream.eof()) {
