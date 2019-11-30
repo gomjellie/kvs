@@ -16,7 +16,7 @@ DYNAMIC_OBJS = $(SRCS:.cpp=.o) $(DYNAMIC_TARG:=.o)
 	$(CC) $(OPTS) -c $< -o $@
 
 clean:
-	ls -1 |grep -v "Makefile" |grep -v "\." |xargs rm
+	ls -1 |grep "\.o" |xargs rm
 
 libkvs.a: $(STATIC_OBJS)
 	ar rc libkvs.a $(STATIC_OBJS)
