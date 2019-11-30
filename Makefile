@@ -11,7 +11,7 @@ STATIC_OBJS = $(OBJS) $(STATIC_TARG:=.o)
 DYNAMIC_OPTS = -shared
 DYNAMIC_TARG = test_dll
 DYNAMIC_OBJS = $(OBJS) $(DYNAMIC_TARG:=.o)
-DYNAMIC_LIBS =
+DYNAMIC_LIBS = -L./ -lkvs
 
 %.o: %.cpp
 	$(CC) $(OPTS) -c $< -o $@
@@ -30,8 +30,7 @@ static: libkvs.a
 
 libkvs.so.0.0.0: $(OBJS)
 	$(CC) $(DYNAMIC_OPTS) -o libkvs.so.0.0.0 $(OBJS)
+	ln -s libkvs.so.0.0.0 libkvs.so
 
 dll: libkvs.so.0.0.0
-	ln -s libkvs.so.0.0.0 libkvs.so
-	$(CC) -o $(DYNAMIC_TARG) $(DYNAMIC_TARG:=.o) $(DYNAMIC_LIBS)
-
+	$(CC) -o $(DYNAMIC_TARG) $(DYNAMIC_TARG:=.cpp) $(DYNAMIC_LIBS)
