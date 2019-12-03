@@ -8,7 +8,7 @@ STATIC_LIBS = -L./ -lkvs
 STATIC_TARG = test_static
 STATIC_OBJS = $(OBJS) $(STATIC_TARG:=.o)
 
-DYNAMIC_OPTS = -shared
+DYNAMIC_OPTS = -shared -fPIC
 DYNAMIC_TARG = test_dll
 DYNAMIC_OBJS = $(OBJS) $(DYNAMIC_TARG:=.o)
 DYNAMIC_LIBS = -L. -lkvs
@@ -30,10 +30,10 @@ static: libkvs.a
 	$(CC) -o $(STATIC_TARG) $(STATIC_TARG:=.cpp) $(STATIC_LIBS)
 
 libkvs.so.0.0.0: $(SRCS)
-	$(CC) $(OPTS) $(DYNAMIC_OPTS) -o libkvs.so.0.0.0 $(SRCS) -fPIC
+	$(CC) $(OPTS) $(DYNAMIC_OPTS) -o libkvs.so.0.0.0 $(SRCS) 
 	ln -s libkvs.so.0.0.0 libkvs.so
 
 dll: libkvs.so.0.0.0
-	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(shell pwd)
-	$(CC) -o $(DYNAMIC_TARG) $(DYNAMIC_TARG:=.cpp) $(DYNAMIC_LIBS)
+	$(CC) -o $(DYNAMIC_TARG) $(DYNAMIC_TARG:=.cpp) $(DYNAMIC_LIBS);
+	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$(shell pwd); ./test_dll put.txt get.txt result_dll.txt
 
