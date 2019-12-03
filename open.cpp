@@ -4,8 +4,8 @@
 
 using namespace std;
 
-extern fstream db_stream;
-extern map<string, string> kvs;
+fstream db_stream;
+map<string, string> kvs;
 
 int open() {
     db_stream.open("my.db", ios::in | ios::out);
