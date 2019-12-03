@@ -33,6 +33,6 @@ libkvs.so.0.0.0: $(SRCS)
 	ln -s libkvs.so.0.0.0 libkvs.so
 
 dll: libkvs.so.0.0.0
-	export LD_LIBRARY_PATH=$LB_LIBRARY_PATH:$(pwd)
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(pwd)
 	$(CC) -o $(DYNAMIC_TARG) $(DYNAMIC_TARG:=.cpp) $(DYNAMIC_LIBS)
 
