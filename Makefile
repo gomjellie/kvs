@@ -17,10 +17,10 @@ DYNAMIC_LIBS = -L./ -lkvs
 	$(CC) $(OPTS) -c $< -o $@
 
 clean:
-	ls -1 |grep "\.o" |xargs rm
-	ls -1 |grep "\.a" |xargs rm
-	ls -1 |grep "\.so" |xargs rm
-	ls -1 |grep -v "\." |grep -v "Makefile" |xargs rm
+	ls -1 |grep "\.o" |xargs rm -f
+	ls -1 |grep "\.a" |xargs rm -f
+	ls -1 |grep "\.so" |xargs rm -f
+	ls -1 |grep -v "\." |grep -v "Makefile" |xargs rm -f
 
 libkvs.a: $(OBJS)
 	ar rc libkvs.a $(OBJS)
