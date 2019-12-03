@@ -13,7 +13,7 @@ make static
 run
 
 ```sh
-./test_static put.txt get.txt
+./test_static put.txt get.txt result_static.txt
 ```
 
 ### dynamic library
@@ -27,6 +27,6 @@ make dll
 run
 
 ```sh
-./test_dll put.txt get.txt
+./test_dll put.txt get.txt result_dll.txt
 ```
 
