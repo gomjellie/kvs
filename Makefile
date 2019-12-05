@@ -8,7 +8,7 @@ STATIC_LIBS = -L./ -lkvs
 STATIC_TARG = test_static
 STATIC_OBJS = $(OBJS) $(STATIC_TARG:=.o)
 
-DYNAMIC_OPTS = -shared
+DYNAMIC_OPTS = -shared -fPIC
 DYNAMIC_TARG = test_dll
 DYNAMIC_OBJS = $(OBJS) $(DYNAMIC_TARG:=.o)
 DYNAMIC_LIBS = -L. -lkvs
@@ -30,7 +30,7 @@ static: libkvs.a
 	$(CC) -o $(STATIC_TARG) $(STATIC_TARG:=.cpp) $(STATIC_LIBS)
 
 libkvs.so.0.0.0: $(SRCS)
-	$(CC) $(OPTS) $(DYNAMIC_OPTS) -o libkvs.so.0.0.0 $(SRCS) -fPIC
+	$(CC) $(OPTS) $(DYNAMIC_OPTS) -o libkvs.so.0.0.0 $(SRCS) 
 	@echo "\n\n"
 	@echo "-----------------------------------------------------------------------"
 	@echo "you need to type following lines to register directory to library path"
