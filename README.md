@@ -22,6 +22,8 @@ build
 
 ```sh
 make dll
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD
 ```
 
 run

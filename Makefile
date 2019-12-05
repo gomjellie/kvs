@@ -31,9 +31,15 @@ static: libkvs.a
 
 libkvs.so.0.0.0: $(SRCS)
 	$(CC) $(OPTS) $(DYNAMIC_OPTS) -o libkvs.so.0.0.0 $(SRCS) -fPIC
+	@echo "\n\n"
+	@echo "-----------------------------------------------------------------------"
+	@echo "you need to type following lines to register directory to library path"
+	@echo "\n"
+	@echo export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(shell pwd)
+	@echo "-----------------------------------------------------------------------"
+	@echo "\n\n"
 	ln -s libkvs.so.0.0.0 libkvs.so
 
 dll: libkvs.so.0.0.0
-	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(shell pwd)
 	$(CC) -o $(DYNAMIC_TARG) $(DYNAMIC_TARG:=.cpp) $(DYNAMIC_LIBS)
 
